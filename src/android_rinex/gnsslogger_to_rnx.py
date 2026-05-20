@@ -2,11 +2,19 @@
 """
 Tool to convert from logfile of GPS-measurements to RINEX format
 
-Usage: gnsslogger_to_rnx logfile <options>
+Let us assume the following folder structure:
+android_rinex/
+├── data/
+│   └── gnss_log.txt/
+└── src/
+    └── android_rinex/
+        ├── gnsslogger_to_rnx.py
+
+Usage from the root folder:
+> python -m src.android_rinex.gnsslogger_to_rnx logfile <options>
 
 Example using sample data file: 
-    
-    gnsslogger_to_rnx ../data/gnss_log.txt
+    > python -m src.android_rinex.gnsslogger_to_rnx data/gnss_log.txt
 
 See main() below for a list of command line options
 """
