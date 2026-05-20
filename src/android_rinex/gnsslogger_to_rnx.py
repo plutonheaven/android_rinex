@@ -84,7 +84,7 @@ def convert2rnx(args):
                                  rec_version=args.receiver_version,
                                  antenna=args.antenna_number,
                                  ant_type=args.antenna_type,
-                                 pos=[0.0, 0.0, 0.0],
+                                 pos=args.pos,
                                  hen=[0.0, 0.0, 0.0],
                                  glo_slot_freq_chns=glo_freq_chns,
                                  glo_cod_phs_bis=glo_cod_phs_bis)
