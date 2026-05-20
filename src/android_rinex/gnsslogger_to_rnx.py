@@ -93,7 +93,7 @@ def convert2rnx(args):
             fh.write(header + body)
         #print(args.output, outFile)
         
-#sys.stderr.close()
+    sys.stderr.close()
 
 
 if __name__ == "__main__":
