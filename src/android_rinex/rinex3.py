@@ -214,21 +214,27 @@ def __write_rnx3_header_glo_slot_frq_chn__(glo_slot_freq_chns):
     # Gets the number of satellites in the list
     num_sats = len(glo_slot_freq_chns)
 
-    # Number of satellites in list
+    # list of lines
+    res_list = []
+    
+    # First line begins with number of satellites in list
     res = "{0:3d} ".format(num_sats)
 
-    # Satellite numbers + frequency numbers
+    # Loop on satellite numbers + frequency numbers
     for sat in glo_slot_freq_chns:
 
         res += "{0:3s} {1:2d} ".format(sat, glo_slot_freq_chns[sat])
         if len(res) == 60:
-            res += "{0:60s}{1}\n".format(res, TAIL)
-            res += "    "
+            # add tail and add current line to list
+            res_list.append("{0:60s}{1}\n".format(res, TAIL))
+            # start a new line
+            res = "    "
 
-    # Tail specs
-    res = "{0:60s}{1}\n".format(res, TAIL)
-
-    return res
+    # Add current line to list if not empty
+    if res != "    ":
+        res_list.append("{0:60s}{1}\n".format(res, TAIL))
+    
+    return "".join(res_list)
 
 # -----------------------------------------------------------------------------
 
