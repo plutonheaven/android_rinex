@@ -463,8 +463,9 @@ def get_glo_freq_chn_list(batches):
                 
                 if sat not in freq_chn_list:
                     freq = get_frequency(measurement)
-                    freq_chn = round((freq -FREQ1_GLO ) / DFREQ1_GLO)
-                    freq_chn_list[sat] = freq_chn
+                    if freq != 1575420000:
+                        freq_chn = round((freq -FREQ1_GLO ) / DFREQ1_GLO)
+                        freq_chn_list[sat] = freq_chn
 
     return freq_chn_list
 
