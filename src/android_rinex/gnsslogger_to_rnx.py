@@ -14,8 +14,8 @@ See main() below for a list of command line options
 import argparse
 import os, sys
 
-import gnsslogger as alogger
-import rinex3 as arinex
+from . import gnsslogger as alogger
+from . import rinex3 as arinex
 
 
 def convert2rnx(args):
@@ -93,7 +93,7 @@ def convert2rnx(args):
             fh.write(header + body)
         #print(args.output, outFile)
         
-#sys.stderr.close()
+    sys.stderr.close()
 
 
 if __name__ == "__main__":
