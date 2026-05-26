@@ -176,7 +176,6 @@ def __write_rnx3_header_firstobs__(epoch):
     res = epoch.strftime("  %Y    %m    %d    %H    %M    %S.") + \
                     '{0:06d}0'.format(int(epoch.microsecond))
     res += "     GPS"
-            
     res = "{0:60s}{1}\n".format(res, TAIL)
     return res
 
@@ -193,7 +192,7 @@ def __write_rnx3_header_lastobs__(epoch):
 
     res = epoch.strftime("  %Y    %m    %d    %H    %M    %S.") + \
                     '{0:06d}0'.format(int(epoch.microsecond))
-
+    res += "     GPS"
     res = "{0:60s}{1}\n".format(res, TAIL)
 
     return res
