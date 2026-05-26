@@ -672,6 +672,9 @@ def process(measurement, model, fix_bias=True, timeadj=1e-7, pseudorange_bias=0.
         raise ValueError("-- WARNING: Invalid value of TimeNanos or satellite  [ {0} ]\n".format(satname))
 
 
+    if fullbiasnanos == "":
+        return None
+
     # Compute the GPS week number and reception time (i.e. clock epoch)
     gpsweek = math.floor(-fullbiasnanos * NS_TO_S / GPS_WEEKSECS)
     local_est_GPS_time = timenanos - (fullbiasnanos + biasnanos)
